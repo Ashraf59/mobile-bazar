@@ -6,12 +6,12 @@ const Navbar = () => {
     const menuItems = 
     
     <React.Fragment>
-    <li><Link to = '/'>Home</Link></li>
-    <li><Link to = '/blog'>Blog</Link></li>
-    <li><Link to = '/about'>About</Link></li>
+    <li className='font-bold text-lg hover:text-rose-500'><Link to = '/'>Home</Link></li>
+    <li className='font-bold text-lg hover:text-rose-500'><Link to = '/blog'>Blog</Link></li>
+    <li className='font-bold text-lg hover:text-rose-500'><Link to = '/about'>About</Link></li>
     </React.Fragment>
     return (
-        <div className="navbar bg-base-100 flex justify-between">
+        <div className="navbar bg-black text-white flex justify-between">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -21,7 +21,8 @@ const Navbar = () => {
               {menuItems}
             </ul>
           </div>
-          <Link to ='/' className="btn btn-ghost normal-case text-xl">Mobile Bazar</Link>
+          <Link to ='/' className="font-extrabold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-rose-500 to-purple-600"> Mobile Bazar
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal p-0">
