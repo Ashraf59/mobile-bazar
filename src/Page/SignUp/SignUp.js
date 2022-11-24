@@ -37,7 +37,7 @@ const Signup = () => {
         .then(result =>{
             const user = result.user;
             console.log(user)
-            console.log(handleGoogleSignIn);
+            navigate('/');
         })
 
         .catch(error => console.error(error))
@@ -52,7 +52,7 @@ const Signup = () => {
           {/* <div>
               <img className="max-w-sm md:max-w-md lg:max-w-md rounded-lg shadow-2xl" src={img} alt="" />
           </div> */}
-          <div className="card max-w-sm bg-base-100 py-12 px-6 w-96 p-7 shadow shadow-slate-500 mt-8 rounded-lg h-[620px] ">
+          <div className="card max-w-sm bg-base-100 py-12 px-6 w-96 p-7 shadow shadow-slate-500 mt-8 rounded-lg h-[650px] ">
           <h1 className="text-5xl font-bold text-center">Sign Up</h1>
       
             <form onSubmit={handleSignup} className="card-body">
@@ -76,24 +76,24 @@ const Signup = () => {
                 
               </div>
               <div className="form-control w-full max-w-xs mt-6">
-                  <input className="btn bg-gradient-to-r from-rose-500 to-purple-500 text-white border-0" type="submit" value="Sign Up" />
+                  <input className="btn bg-gradient-to-r from-rose-500 to-purple-500 text-white border-0 font-bold" type="submit" value="Sign Up" />
                 
               </div>
               {/* <div className='text-center mt-3'>
       
                           <button className="btn btn-outline btn-error bg-gradient-to-r hover:from-rose-500 hover:to-purple-500 text-white w-full"><FaGoogle onClick={handleGoogleSignIn} className='me-3 font'/></button>
                           </div> */}
-                          <div className='text-center mb-2 mt-3'>
-
-                            <button className="btn btn-outline btn-error w-full"><FaGoogle onClick={handleGoogleSignIn} className='me-3 font'/></button>
-                        </div>  
+                          <button onClick={handleGoogleSignIn} className='btn btn-outline bg-gradient-to-r from-rose-500 to-purple-500 text-white border-0 w-full max-w-xs mt-6 font-bold'>GOOGLE</button>
+                         
             </form>
-            <div className='mb-6'>
-            <p className='text-center'>Already have an account? Please <Link className='font-semibold text-rose-700' to = '/login'>Login</Link></p>
-            </div>
+            
+            <p>Already have an account? <Link className='text-secondary' to='/login'>Please login</Link></p>
+            
+            
+        </div>
           </div>
         </div>
-      </div>
+      
     );
 };
 
