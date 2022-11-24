@@ -28,7 +28,13 @@ const AuthProvider = ({children}) => {
      const updateUser = (userInfo) => {
         setLoading(true)
         return updateProfile(auth.currentUser, userInfo)
-     }    
+     } 
+     
+     const login = (email, password) => {
+        setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
     const logOut = () => {
         setLoading(true)
         return signOut(auth)
@@ -49,6 +55,7 @@ const AuthProvider = ({children}) => {
         providerLogin,
         updateUser,
         user,
+        login,
         logOut,
         loading
     }

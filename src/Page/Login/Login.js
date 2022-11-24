@@ -1,34 +1,45 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
-
-const Signup = () => {
-    const {createUser, providerLogin, setLoading} = useContext(AuthContext)
+const Login = () => {
+    const {login, providerLogin, setLoading} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
+    const location = useLocation();
     const navigate = useNavigate();
 
-    // UseTitle('Sign Up')
+  const from = location.state?.from?.pathname || '/';
+
+    // UseTitle('Login')
 
 
-    const handleSignup = event => {
+    const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-
-        createUser(email, password)
+        console.log(email, password)
+    
+        login(email, password)
         .then(result => {
-            const user = result.user;
-            console.log(user)
-            form.reset();
-            navigate('/');
+          const user = result.user;
+          console.log(user)
+          form.reset();
+          // navigate('/');
+          if(user?.email){
+            navigate(from, {replace: true})
+            }
+            
         })
-        .catch(error => console.error(error));
-      }
+        .catch(error => console.error(error))
+        .finally(() => {
+          setLoading(false)
+        })
+    }
 
-      const handleGoogleSignIn = () => {
+
+    const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
         .then(result =>{
             const user = result.user;
@@ -42,20 +53,16 @@ const Signup = () => {
         })
         
     }
+
     return (
         <div className='my-20'>
         <div className="flex justify-center items-center">
           
-          <div className="card max-w-sm bg-base-100 py-12 px-6 w-96 p-7 shadow shadow-slate-500 mt-8 rounded-lg h-[650px] ">
-          <h1 className="text-5xl font-bold text-center">Sign Up</h1>
+          <div className="card max-w-sm bg-base-100 py-12 px-6 w-96 p-7 shadow shadow-slate-500 mt-8 rounded-lg h-[550px] ">
+          <h1 className="text-5xl font-bold text-center">Login</h1>
       
-            <form onSubmit={handleSignup} className="card-body">
-              <div className="form-control w-full max-w-xs">
-                <label className="label">
-                  <span className="label-text">Name</span>
-                </label>
-                <input type="text" name="name" placeholder="name" className="input input-bordered w-full max-w-xs" />
-              </div>
+            <form onSubmit={handleLogin} className="card-body">
+              
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text">Email</span>
@@ -70,7 +77,7 @@ const Signup = () => {
                 
               </div>
               <div className="form-control w-full max-w-xs mt-6">
-                  <input className="btn bg-gradient-to-r from-rose-500 to-purple-500 text-white border-0 font-bold" type="submit" value="Sign Up" />
+                  <input className="btn bg-gradient-to-r from-rose-500 to-purple-500 text-white border-0 font-bold" type="submit" value="Login" />
                 
               </div>
               
@@ -78,14 +85,13 @@ const Signup = () => {
                          
             </form>
             
-            <p>Already have an account? <Link className='text-rose-500' to='/login'>Please login</Link></p>
+            <p>Are you new in Mobile Bazar? Please <Link className='text-rose-500' to='/signup'>Sign Up</Link></p>
             
             
         </div>
           </div>
         </div>
-      
     );
 };
 
-export default Signup;
+export default Login;
