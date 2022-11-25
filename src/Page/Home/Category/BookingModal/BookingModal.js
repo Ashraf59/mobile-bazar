@@ -51,7 +51,7 @@ const BookingModal = ({ booking, setBooking }) => {
     return (
         <>
             <input type="checkbox" id="booking-modal" className="modal-toggle" />
-            <div className="modal">
+            <div className="modal shadow shadow-slate-500">
                 <div className="modal-box relative">
                 <label onClick={handleNull} htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg">{model}</h3>
@@ -63,7 +63,7 @@ const BookingModal = ({ booking, setBooking }) => {
                         <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                         <input name="address" type="text" placeholder="Meeting Location" className="input w-full input-bordered" />
                         <br />
-                        <input className="btn w-full border-none bg-gradient-to-r from-[#F44369] to-[#D64270] text-white" type="submit" value="Submit" />
+                        <input className="btn w-full border-none bg-gradient-to-r from-rose-500 to-purple-500 text-white font-bold" type="submit" value="Submit" />
                     </form>
                 </div>
             </div>

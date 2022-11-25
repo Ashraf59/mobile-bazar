@@ -6,7 +6,7 @@ const NewArrival = () => {
         <div >
             <h2 className="text-4xl font-bold text-center mb-5 mt-20 sm:text-4xl drop-shadow-lg p-6 rounded-lg">New Arrivals</h2>
              <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-20 justify-items-center'>
-             <div className="card card-compact w-96 bg-base-100 shadow-xl">
+             <div className="card card-compact w-96 bg-base-100 shadow shadow-slate-500">
              <figure><img src="https://www.mobiledokan.com/wp-content/uploads/2021/10/Apple-iPhone-13-Pro-image.jpg" alt="Shoes" /></figure>
                  <div className="card-body">
               <h2 className="card-title justify-center">Apple iPhone 13 Pro Max</h2>
@@ -17,7 +17,7 @@ const NewArrival = () => {
              </div>
              </div>
             </div>
-             <div className="card card-compact w-96 bg-base-100 shadow-xl">
+             <div className="card card-compact w-96 bg-base-100 shadow shadow-slate-500">
              <figure><img src="https://www.sammobile.com/wp-content/uploads/2022/04/galaxy-m53-5g-1.jpg" alt="Shoes" /></figure>
                  <div className="card-body">
               <h2 className="card-title justify-center"> Galaxy M53 5G</h2>
@@ -29,7 +29,7 @@ const NewArrival = () => {
              </div>
              </div>
             </div>
-             <div className="card card-compact w-96 bg-base-100 shadow-xl">
+             <div className="card card-compact w-96 bg-base-100 shadow shadow-slate-500">
              <figure><img src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc3/Untitled4191.jpg" alt="Shoes" /></figure>
                  <div className="card-body text-center ">
               <h2 className="card-title justify-center">Xiaomi Mi Mix Fold</h2>

@@ -4,6 +4,7 @@ import BookingModal from '../Category/BookingModal/BookingModal';
 const CategoryInfo = ({category}) => {
     const [booking, setBooking] = useState(null);
     const [data, setData] = useState(null);
+    console.log(category);
 
     const {_id, model, name, resale_price, original_price, use, location, seller, image} = category;
 
@@ -15,9 +16,9 @@ const CategoryInfo = ({category}) => {
 
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-2xl mt-20 mb-10">
-            <figure className='p-8 mt-4'><img src={image} alt="Shoes" /></figure>
-                <div className="card-body">
+            <div className="card w-96 bg-base-100 shadow shadow-slate-500 mt-20 mb-10">
+            <figure className='p-8 mt-4'><img src={image} alt="Mobile" className='h-[350px] w-[300px]'  /></figure>
+                <div className="card-body text-left">
                     <div>
                         <h2 className="card-title text-gray-700">{model}</h2>
                         <h4 className="card-title text-[18px] mt-3">Location: <span className='text-gray-500'>{location}</span></h4>
@@ -34,7 +35,7 @@ const CategoryInfo = ({category}) => {
                         <label
                             onClick={() => setBooking(data)}
                             htmlFor="booking-modal" 
-                            className="btn w-full border-none bg-gradient-to-r from-[#F44369] to-[#D64270] text-white"
+                            className="btn w-full border-none bg-gradient-to-r from-rose-500 to-purple-500 text-white font-bold"
                         >Book Now</label>
                     </div>
                 </div>
