@@ -1,11 +1,12 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 
 
 const Signup = () => {
-    const {createUser, providerLogin, setLoading} = useContext(AuthContext)
+    const {createUser, providerLogin, setLoading, updateUser} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate();
 
@@ -15,18 +16,46 @@ const Signup = () => {
     const handleSignup = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value
         const email = form.email.value;
         const password = form.password.value;
+        const userdata = form.users.value;
 
         createUser(email, password)
         .then(result => {
             const user = result.user;
             console.log(user)
-            form.reset();
-            navigate('/');
+            const userInfo = {
+              displayName: name
+            }
+            updateUser(userInfo)
+            .then(()=> {
+              
+              form.reset();
+              saveUser(name, email, userdata);
+            
+            })
+            .catch(error => console.log(error))
         })
         .catch(error => console.error(error));
       }
+
+      const saveUser = (name, email, user) => {
+        const users = { name, email, user };
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(users)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success('user send to database')
+                navigate('/')
+            })
+    }
+
 
       const handleGoogleSignIn = () => {
         providerLogin(googleProvider)
@@ -46,7 +75,7 @@ const Signup = () => {
         <div className='my-20'>
         <div className="flex justify-center items-center">
           
-          <div className="card max-w-sm bg-base-100 py-12 px-6 w-96 p-7 shadow shadow-slate-500 mt-8 rounded-lg h-[650px] ">
+          <div className="card max-w-sm bg-base-100 py-12 px-6 w-96 p-7 shadow shadow-slate-500 mt-8 rounded-lg h-[720px] ">
           <h1 className="text-5xl font-bold text-center">Sign Up</h1>
       
             <form onSubmit={handleSignup} className="card-body">
@@ -56,6 +85,15 @@ const Signup = () => {
                 </label>
                 <input type="text" name="name" placeholder="name" className="input input-bordered w-full max-w-xs" />
               </div>
+              <div className="form-control w-full max-w-xs">
+                                <label className="label">
+                                    <span className="label-text">Buyer/Seller</span>
+                                </label>
+                                <select name='users' className="select select-bordered w-full max-w-xs">
+                                    <option value='user'>user</option>
+                                    <option value='seller'>seller</option>
+                                 </select>
+                            </div>
               <div className="form-control w-full max-w-xs">
                 <label className="label">
                   <span className="label-text">Email</span>

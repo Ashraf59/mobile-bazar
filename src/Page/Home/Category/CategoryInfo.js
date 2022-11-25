@@ -1,40 +1,52 @@
-import React, { useState } from 'react';
-import PrimaryButton from '../../../component/PrimaryButton';
+import React, { useEffect, useState } from 'react';
+import BookingModal from '../Category/BookingModal/BookingModal';
 
 const CategoryInfo = ({category}) => {
-    const [booking, setBooking] = useState(null)
-    const [data, setData] = useState({})
-    const {image, name, location, model, use, oirginal_price, resale_price, seller} = category
+    const [booking, setBooking] = useState(null);
+    const [data, setData] = useState(null);
+
+    const {_id, model, name, resale_price, original_price, use, location, seller, image} = category;
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/categories/${_id}`)
+        .then( res => res.json())
+        .then(data => setData(data))
+    }, [_id])
+
     return (
-        <section>
-            <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
-            <figure className="px-10 pt-10">
-             <img src={image} alt="Mobile" className="rounded-xl h-[300px] w-[300px]" />
-             </figure>
-             <div className="card-body items-start text-left ">
-             <h2 className="card-title">Brand: {name}</h2>
-             <div className='flex justify-between'>
-             <div>
-             <p>Used: {use} /Yrs</p>
-             <p>Original Price: {oirginal_price}</p>
-             <p>Resale Price: {resale_price}</p>
-             </div>
-
-             <div>
-             
-             <p>Seller Name: {seller}</p>
-             <p>Location: {location}</p>
-             </div>
-             </div>
-
-             <div className="card-actions justify-center">
-              <PrimaryButton>Book Now</PrimaryButton>
-    </div>
-  </div>
-</div>
+        <div>
+            <div className="card w-96 bg-base-100 shadow-2xl mt-20 mb-10">
+            <figure className='p-8 mt-4'><img src={image} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <div>
+                        <h2 className="card-title text-gray-700">{model}</h2>
+                        <h4 className="card-title text-[18px] mt-3">Location: <span className='text-gray-500'>{location}</span></h4>
+                    </div>
+                    <div className='flex justify-between items-center'>
+                        <p className='font-semibold'>Original Price: <span className='text-black text-[18px] font-bold'>${original_price}</span></p>
+                        <p className='font-semibold'>Resale Price: <span className='text-black text-[18px] font-bold'>${resale_price}</span></p>
+                    </div>
+                    <div className='flex justify-between'>
+                        <p className='font-semibold'>Seller: {seller}</p>
+                        <p className='font-semibold'>Used: {use} years</p>
+                    </div>
+                    <div className="card-action mt-5">
+                        <label
+                            onClick={() => setBooking(data)}
+                            htmlFor="booking-modal" 
+                            className="btn w-full border-none bg-gradient-to-r from-[#F44369] to-[#D64270] text-white"
+                        >Book Now</label>
+                    </div>
+                </div>
             </div>
-        </section>
+            {
+                booking &&
+                <BookingModal
+                booking={booking}
+                setBooking={setBooking}
+                ></BookingModal>
+            }
+        </div>
     );
 };
 
