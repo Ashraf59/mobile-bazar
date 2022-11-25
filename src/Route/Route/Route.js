@@ -1,5 +1,6 @@
 import Main from "../../Layout/Main";
 import Blog from "../../Page/Home/Blog/Blog";
+import Category from "../../Page/Home/Category/Category";
 import Home from "../../Page/Home/Home";
 import Login from "../../Page/Login/Login";
 import SignUp from "../../Page/SignUp/SignUp";
@@ -29,6 +30,11 @@ const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path: '/category/:name',
+                element: <Category></Category>,
+                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
             }
         ]
     }
