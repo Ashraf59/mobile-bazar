@@ -25,11 +25,11 @@ const DashboardLayout = () => {
                        {
                         isAdmin &&  <li className='text-black'><Link to='/dashboard/allusers'>All Users</Link></li>
                        }
-                        {/* {
-                            isAdmin && <>
-                                <li className='text-black'><Link to='/dashboard/managedoctors'>Manage Doctors</Link></li>
-                            </>
-                        } */}
+                        
+                            
+                                <li className='text-black'><Link to='/dashboard/addproducts'>Add A Products</Link></li>
+                        
+                        
                     </ul>
                 </div>
             </div>
