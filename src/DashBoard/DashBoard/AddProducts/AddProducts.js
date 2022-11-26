@@ -1,10 +1,16 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const AddProducts = () => {
+    const navigate = useNavigate();
+    const {user} = useContext(AuthContext)
     const handleAddProduct = event => {
         event.preventDefault();
         const form = event.target;
+        const username = form.username.value;
+        const email = form.email.value;
         const name = form.name.value;
         const price = form.price.value;
         const condition = form.condition.value;
@@ -15,7 +21,9 @@ const AddProducts = () => {
         const details = form.details.value;
         // console.log(details, name, price);
 
-        const AddProducts = {
+        const addProducts = {
+            seller: username,
+            email, 
             productName: name,
             price,
             condition,
@@ -25,19 +33,38 @@ const AddProducts = () => {
             category,
             details
         }
-        console.log(AddProducts);
-        
+
+        fetch('http://localhost:5000/addproducts', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addProducts)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    toast.success('Products Succesfully Added');
+                    navigate('/dashboard/products')
+
+                }
+                else {
+                    toast.error(data.message);
+                }
+            })
 
     }
     return (
         <div>
-            <h2 className="text-3">Add Products</h2>
+            <h2 className="text-4xl font-bold text-center mb-5 mt-20 sm:text-4xl drop-shadow-lg p-6 rounded-lg">Add Products</h2>
 
             <section className='flex justify-center'>
            
             <div className="shadow shadow-slate-500 w-96 p-7 rounded-lg ">
             <form onSubmit={handleAddProduct} className='grid grid-cols-1 gap-3 mt-10'>
-                        <input name="name" type="text" placeholder="Your Name" className="input w-full input-bordered" />
+                        <input name="username" type="text" defaultValue={user?.displayName}  placeholder="Your Name" className="input w-full input-bordered" />
+                        <input name="email" type="text" defaultValue={user?.email}  placeholder="Your Name" className="input w-full input-bordered" />
+                        <input name="name" type="text" placeholder="Products Name" className="input w-full input-bordered" />
                         <input name="price" type="text"  placeholder="Product Price" className="input w-full input-bordered" />
                         <select name='condition' className="select select-bordered">
                         <option value='excellent'>Excellent</option>

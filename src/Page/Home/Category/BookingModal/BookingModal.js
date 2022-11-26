@@ -64,7 +64,7 @@ const BookingModal = ({ booking, setBooking }) => {
                         <input name="phone" type="text" placeholder="Phone Number" className="input w-full input-bordered" />
                         <input name="address" type="text" placeholder="Meeting Location" className="input w-full input-bordered" />
                         <br />
-                        <input className="btn w-full border-none bg-gradient-to-r from-rose-500 to-purple-500 text-white font-bold" type="submit" value="Submit" />
+                        <input className="btn w-full border-none btn bg-gradient-to-r from-rose-500 to-purple-500 hover:from-green-500 hover:to-blue-500 text-white border-0 font-bold" type="submit" value="Submit" />
                     </form>
                 </div>
             </div>

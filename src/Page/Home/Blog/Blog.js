@@ -7,7 +7,7 @@ const Blog = () => {
     return (
         <section className="dark:bg-gray-800 dark:text-gray-100">
             <div className="container flex flex-col justify-center px-4 py-8 mx-auto md:p-8">
-                <h2 className="text-2xl font-semibold text-center mb-5 sm:text-4xl drop-shadow-lg p-6 rounded-lg">Important Questions and Answers</h2>
+            <h2 className="text-4xl font-bold text-center mb-5 mt-12 sm:text-4xl drop-shadow-lg p-6 rounded-lg">Important Questions and Answers</h2>
         
                 <div className="space-y-4">
                     <details className="w-full border rounded-lg">
