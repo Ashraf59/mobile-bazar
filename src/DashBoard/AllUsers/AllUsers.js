@@ -39,9 +39,9 @@ const AllUsers = () => {
     return (
         <div>
             <div>
-                <h3 className='text-3xl text-black mt-10 mb-6'>All Users</h3>
+            <h2 className="text-4xl font-bold text-center mb-5 mt-20 sm:text-4xl drop-shadow-lg p-6 rounded-lg">All Users</h2>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto shadow shadow-slate-400 mx-8 p-6 mb-10 rounded-lg">
                 <table className="table w-full">
                     <thead>
                     <tr>

@@ -19,7 +19,7 @@ const MyProducts = () => {
         <div>
         <h2 className="text-4xl font-bold text-center mb-5 mt-20 sm:text-4xl drop-shadow-lg p-6 rounded-lg">My Products</h2>
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto shadow shadow-slate-400 mx-8 p-6 mb-10 rounded-lg">
             <table className="table sm:w-1/4 lg:w-full">
                 <thead>
                 <tr><th>Sl. No</th>

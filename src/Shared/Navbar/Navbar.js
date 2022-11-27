@@ -14,20 +14,20 @@ const Navbar = () => {
     const menuItems = 
     
     <React.Fragment>
-    <li className='font-bold text-lg hover:text-rose-500'><Link to = '/'>Home</Link></li>
-    <li className='font-bold text-lg hover:text-rose-500'><Link to = '/blog'>Blog</Link></li>
-    <li className='font-bold text-lg hover:text-rose-500'><Link to = '/about'>About</Link></li>
+    <li className='font-bold text-xl hover:text-rose-500'><Link to = '/'>Home</Link></li>
+    <li className='font-bold text-xl hover:text-rose-500'><Link to = '/blog'>Blog</Link></li>
+    <li className='font-bold text-xl hover:text-rose-500'><Link to = '/about'>About</Link></li>
     {
           user?.uid? 
           <>
           {/* <li><Link to = '/dashboard'>Dashboard</Link></li> */}
-          <li className='font-bold text-lg hover:text-rose-500'><Link to = '/dashboard'>Dashboard</Link></li>
-          <li className='font-bold text-lg hover:text-rose-500'><button onClick={handleLogOut}>Sign Out</button></li>
+          <li className='font-bold text-xl hover:text-rose-500'><Link to = '/dashboard'>Dashboard</Link></li>
+          <li className='font-bold text-xl hover:text-rose-500'><button onClick={handleLogOut}>Sign Out</button></li>
           </>
           :
           <>
-          <li className='font-bold text-lg hover:text-rose-500'><Link to = '/login'>Login</Link></li>
-          <li className='font-bold text-lg hover:text-rose-500'><Link to = '/signup'>Sign Up</Link></li>
+          <li className='font-bold text-xl hover:text-rose-500'><Link to = '/login'>Login</Link></li>
+          <li className='font-bold text-xl hover:text-rose-500'><Link to = '/signup'>Sign Up</Link></li>
           </>
         }
     </React.Fragment>
