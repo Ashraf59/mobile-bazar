@@ -1,8 +1,7 @@
 import React from 'react';
 
-const Showmyproduct = ({addproduct}) => {
-    console.log(addproduct);
-    const {} = addproduct
+const Showmyproduct = () => {
+    
     return (
         <div>
             

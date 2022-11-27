@@ -42,7 +42,7 @@ const Navbar = () => {
               {menuItems}
             </ul>
           </div>
-          <Link to ='/' className="font-extrabold text-transparent text-3xl bg-clip-text bg-gradient-to-r from-purple-500 to-pink-600"> Mobile Bazar
+          <Link to ='/' className="font-extrabold text-transparent text-4xl bg-clip-text bg-gradient-to-r from-rose-500 to-purple-500 hover:from-green-500 hover:to-blue-500 text-white"> Mobile Bazar
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
