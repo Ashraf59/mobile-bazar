@@ -39,7 +39,8 @@ const AllUsers = () => {
     return (
         <div>
             <div>
-            <h2 className="text-4xl font-bold text-center mb-5 mt-20 sm:text-4xl drop-shadow-lg p-6 rounded-lg">All Users</h2>
+            <h2 className="text-4xl font-bold text-center mt-6 sm:text-4xl drop-shadow-lg p-6 rounded-lg">All Users</h2>
+            <div className="divider mx-8"></div>
             </div>
             <div className="overflow-x-auto shadow shadow-slate-400 mx-8 p-6 mb-10 rounded-lg">
                 <table className="table w-full">
@@ -58,8 +59,8 @@ const AllUsers = () => {
                                 <th>{i+1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-xs btn-primary'>Make Admin</button>}</td>
-                                <td><button className='btn btn-xs btn-danger'>Delete</button></td>
+                                <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-outline btn-sm btn-primary'>Make Admin</button>}</td>
+                                <td><button className='btn btn-sm btn-outline btn-error'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>

@@ -28,7 +28,8 @@ const MyOrders = () => {
     return (
         <div>
             <div>
-            <h2 className="text-4xl font-bold text-center mb-5 mt-20 sm:text-4xl drop-shadow-lg p-6 rounded-lg">My Orders</h2>
+            <h2 className="text-4xl font-bold text-center mt-6 sm:text-4xl drop-shadow-lg p-6 rounded-lg">My Orders</h2>
+            <div className="divider mx-8"></div>
             </div>
             <div className="overflow-x-auto shadow shadow-slate-400 mx-8 p-6 rounded-lg">
                 <table className="table sm:w-1/4 lg:w-full ">
