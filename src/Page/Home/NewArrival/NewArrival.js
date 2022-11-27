@@ -13,7 +13,7 @@ const NewArrival = () => {
               <p className='text-rose-500 text-center'>Price: BDT. 1,62,999.00</p>
               <p>iPhone 13 Pro Max exclusive new arrival phone</p>
              <div className="card-actions justify-center">
-             <PrimaryButton>Buy Now</PrimaryButton>
+          
              </div>
              </div>
             </div>
@@ -24,7 +24,7 @@ const NewArrival = () => {
               <p className='text-rose-500'>Price: BDT. 52,999.00</p>
               <p>Galaxy M53 5G exclusive new arrival phone</p>
              <div className="card-actions justify-center">
-             <PrimaryButton>Buy Now</PrimaryButton>
+             
 
              </div>
              </div>
@@ -37,7 +37,7 @@ const NewArrival = () => {
               <p>Xiaomi Mi Mix Fold exclusive new arrival phone</p>
 
              <div className="card-actions justify-center">
-             <PrimaryButton>Buy Now</PrimaryButton>
+            
              </div>
              </div>
             </div>

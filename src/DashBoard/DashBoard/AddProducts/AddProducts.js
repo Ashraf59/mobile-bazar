@@ -85,7 +85,7 @@ const AddProducts = () => {
                         <input name="email" type="text" defaultValue={user?.email}  placeholder="Your Name" className="input w-full input-bordered" />
                         <input name="name" type="text" placeholder="Products Name" className="input w-full input-bordered" />
                         <input name="price" type="text"  placeholder="Product Price" className="input w-full input-bordered" />
-                        <input type="file" name='image' className="input input-bordered w-full" />
+                        <input type="file" name='image' className="input input-bordered p-2 w-full" />
                         <select name='condition' className="select select-bordered">
                         <option value='excellent'>Excellent</option>
                         <option value='good'>Good</option>
@@ -99,7 +99,7 @@ const AddProducts = () => {
                         <option value='good'>Samsung</option>
                         <option value='fair'>Xaiomi</option>
                     </select>
-                    <textarea name="details" id="" placeholder='Add your text here'></textarea>
+                    <textarea className='p-3 border rounded' name="details" id="" placeholder='Add your text here'></textarea>
                         
                         <br />
                         <input className="btn w-full border-none bg-gradient-to-r from-rose-500 to-purple-500 text-white font-bold" type="submit" value="Submit" />
