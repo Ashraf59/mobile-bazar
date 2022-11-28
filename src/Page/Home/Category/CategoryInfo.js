@@ -35,7 +35,7 @@ const CategoryInfo = ({category}) => {
                         <label
                             onClick={() => setBooking(data)}
                             htmlFor="booking-modal" 
-                            className="btn w-full border-none btn bg-gradient-to-r from-rose-500 to-purple-500 hover:from-green-500 hover:to-blue-500 text-white border-0 font-bold"
+                            className=" w-full border-none btn bg-gradient-to-r from-rose-500 to-purple-500 hover:from-green-500 hover:to-blue-500 text-white border-0 font-bold"
                         >Book Now</label>
                     </div>
                 </div>

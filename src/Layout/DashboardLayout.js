@@ -4,9 +4,11 @@ import { AuthContext } from '../context/AuthProvider';
 import useAdmin from '../hooks/useAdmin';
 import Navbar from '../Shared/Navbar/Navbar';
 import { FaMobile, FaShoppingBag, FaShoppingCart, FaUser, FaUsers } from "react-icons/fa";
+import useTitle from '../hooks/UseTitle';
 
 const DashboardLayout = () => {
 
+        useTitle('Dashboard')
     const {user} = useContext(AuthContext);
 
     const [isAdmin] = useAdmin(user?.email)

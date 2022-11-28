@@ -5,6 +5,7 @@ import Payment from "../../DashBoard/DashBoard/Payment/Payment";
 import MyOrders from "../../DashBoard/MyOrders/MyOredrs";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
+import AllCatagory from "../../Page/Home/AllCatagory/AllCatagory";
 import Blog from "../../Page/Home/Blog/Blog";
 import Category from "../../Page/Home/Category/Category";
 import Home from "../../Page/Home/Home";
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path: '/allcatagory',
+                element:<AllCatagory></AllCatagory>
             },
             {
                 path: '/category/:name',

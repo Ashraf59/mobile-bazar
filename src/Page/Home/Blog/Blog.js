@@ -1,8 +1,10 @@
 import React from 'react';
 import PrimaryButton from '../../../component/PrimaryButton';
+import useTitle from '../../../hooks/UseTitle';
 
 
 const Blog = () => {
+    useTitle('Blog')
 
     return (
         <section className="dark:bg-gray-800 dark:text-gray-100">

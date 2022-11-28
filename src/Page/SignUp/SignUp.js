@@ -3,9 +3,11 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import useTitle from '../../hooks/UseTitle';
 
 
 const Signup = () => {
+  useTitle('Signup')
     const {createUser, providerLogin, setLoading, updateUser} = useContext(AuthContext)
     const googleProvider = new GoogleAuthProvider()
     const navigate = useNavigate();
