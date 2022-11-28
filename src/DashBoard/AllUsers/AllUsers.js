@@ -27,9 +27,9 @@ const AllUsers = () => {
             method: 'PUT',
 
             // Step- 16 (jwt)
-            // headers: {
-            //     authorization: `bearer ${localStorage.getItem('accessToken')}`
-            // }
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
         .then(res => res.json())
         .then(data => {
@@ -46,9 +46,9 @@ const AllUsers = () => {
     const handleDeleteUser = user => {
         fetch(`http://localhost:5000/users/${user._id}`, {
             method: 'DELETE',
-            // headers: {
-            //     authorization: bearer ${localStorage.getItem('accessToken')}
-            // }
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
         })
             .then(res => res.json())
             .then(data => {

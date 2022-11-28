@@ -1,19 +1,27 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useTitle from '../../hooks/UseTitle';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
   useTitle('Login')
     const {login, providerLogin, setLoading} = useContext(AuthContext)
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+
+     // Step- 12 (jwt)
+     const [loginUserEmail, setLoginUserEmail] = useState('');
+     const [token] = useToken(loginUserEmail);
     const location = useLocation();
     const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || '/';
 
-    // UseTitle('Login')
+    // Step- 14 (jwt)
+    if(token){
+      navigate(from, {replace: true});
+  }
 
 
     const handleLogin = event => {
@@ -26,18 +34,17 @@ const Login = () => {
         login(email, password)
         .then(result => {
           const user = result.user;
-          console.log(user)
+          console.log(user);
+          setLoginUserEmail(email);
           form.reset();
-          // navigate('/');
-          if(user?.email){
-            navigate(from, {replace: true})
-            }
+          // // navigate('/');
+          // if(user?.email){
+          //   navigate(from, {replace: true})
+          //   }
+          
             
         })
         .catch(error => console.error(error))
-        .finally(() => {
-          setLoading(false)
-        })
     }
 
 

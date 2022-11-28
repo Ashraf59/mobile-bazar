@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../context/AuthProvider';
 
 const BookingModal = ({ booking, setBooking }) => {
     const { user } = useContext(AuthContext)
     const { model, resale_price, image } = booking;
+    const navigate = useNavigate();
 
     const handleNull = () => {
         setBooking(null)
@@ -38,14 +40,17 @@ const BookingModal = ({ booking, setBooking }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
-                if (data.acknowledged) {
+                if (data.acknowledged && user?.email) {
                     setBooking(null)
                     toast.success('Booking confirmed');
+                    
                 }
                 else {
-                    toast.error(data.message);
+                    toast.error('You have to first logIn');
+                    navigate('/login')
+                    return
                 }
+
             })
     }
 

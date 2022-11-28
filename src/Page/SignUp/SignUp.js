@@ -1,18 +1,22 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import useTitle from '../../hooks/UseTitle';
+import useToken from '../../hooks/useToken';
 
 
 const Signup = () => {
   useTitle('Signup')
     const {createUser, providerLogin, setLoading, updateUser} = useContext(AuthContext)
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+
     const navigate = useNavigate();
 
-    // UseTitle('Sign Up')
 
 
     const handleSignup = event => {
@@ -53,8 +57,11 @@ const Signup = () => {
         })
             .then(res => res.json())
             .then(data => {
-                toast.success('user send to database')
-                navigate('/')
+                // toast.success('user send to database')
+                // navigate('/')
+
+                // Step- 10 (jwt)
+                setCreatedUserEmail(email);
             })
     }
 
