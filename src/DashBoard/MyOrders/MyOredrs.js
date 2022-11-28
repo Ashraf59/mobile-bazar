@@ -9,7 +9,7 @@ const MyOrders = () => {
 
     const {user} = useContext(AuthContext);
 
-    const url = `http://localhost:5000/myorder?email=${user?.email}`;
+    const url = `https://mobile-bazar-server-ten.vercel.app/myorder?email=${user?.email}`;
 
     const {data: order, isLoading = [] } = useQuery({
         queryKey: ['order'],

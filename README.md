@@ -2,12 +2,12 @@ Mobile Bazar is a second hand online mobile buy and selling market, where anybod
 
 
 ## Admin Login Info
-Email Id: admin@gmail.com
-Password: 123456
+adminEmail:: \<admin@gmail.com\>
+adminPassword:: \<123456\>
 
 ## Live Link
 
-Hosted in Firebase -> [Mobile Bazar]()
+Hosted in Firebase -> [Mobile Bazar](https://mobile-bazar-f4193.web.app/)
 
 ## Firebase - Google
 Firebase -> [Link](https://firebase.google.com/?hl=es-419)

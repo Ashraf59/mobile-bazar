@@ -9,7 +9,7 @@ const CategoryInfo = ({category}) => {
     const {_id, model, name, resale_price, original_price, use, location, seller, image} = category;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/categories/${_id}`)
+        fetch(`https://mobile-bazar-server-ten.vercel.app/categories/${_id}`)
         .then( res => res.json())
         .then(data => setData(data))
     }, [_id])

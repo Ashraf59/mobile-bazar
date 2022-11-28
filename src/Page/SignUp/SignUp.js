@@ -48,7 +48,7 @@ const Signup = () => {
 
       const saveUser = (name, email, user) => {
         const users = { name, email, user };
-        fetch('http://localhost:5000/users', {
+        fetch('https://mobile-bazar-server-ten.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

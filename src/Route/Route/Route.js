@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/category/:name',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.name}`)
+                loader: ({ params }) => fetch(`https://mobile-bazar-server-ten.vercel.app/category/${params.name}`)
             }
         ]
     },
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/payment/:id',
                 element: <Payment></Payment>,
-                loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`)
+                loader: ({params}) => fetch(`https://mobile-bazar-server-ten.vercel.app/bookings/${params.id}`)
             }
         ]
     }

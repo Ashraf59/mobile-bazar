@@ -12,7 +12,7 @@ const MyProducts = () => {
     const {data: products, isLoading, refetch = []} = useQuery({
         queryKey: ['myproducts', user?.email],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myproducts?email=${user?.email}`, {
+            const res = await fetch(`https://mobile-bazar-server-ten.vercel.app/myproducts?email=${user?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -32,7 +32,7 @@ const MyProducts = () => {
         //console.log('myitem', myitem);
         const confirm = window.confirm('Are you sure want to confirm')
        if(confirm){
-        fetch('http://localhost:5000/advertise', {
+        fetch('https://mobile-bazar-server-ten.vercel.app/advertise', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
@@ -55,7 +55,7 @@ const MyProducts = () => {
 
         const handleDeleteProduct = (id) => {
             // console.log(advertiseId);
-            fetch(`http://localhost:5000/myProducts/${id}`, {
+            fetch(`https://mobile-bazar-server-ten.vercel.app/myProducts/${id}`, {
                 method: 'DELETE',
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`

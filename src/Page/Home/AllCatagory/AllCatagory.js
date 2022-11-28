@@ -10,7 +10,7 @@ const AllCatagory = () => {
     const { data: catagories = [] } = useQuery({
         queryKey: ['allcatagory'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allcatagory')
+            const res = await fetch('https://mobile-bazar-server-ten.vercel.app/allcatagory')
             const data = await res.json()
             return data
         }
