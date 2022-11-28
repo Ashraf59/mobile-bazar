@@ -19,8 +19,8 @@ const AllCatagory = () => {
 
     return (
         <div>
-            <h3 className="text-center my-10 text-3xl text-green-500">All Category{catagories.length} </h3>
-            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 my-5'>
+            <h2 className="text-4xl font-bold text-center mb-5 mt-20 sm:text-4xl drop-shadow-lg p-6 rounded-lg">All Categories</h2>
+            <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-3 my-5 justify-items-center'>
                 {
                     catagories.map(catagory => <CategoryInfo
                         key={catagory._id}

@@ -16,7 +16,7 @@ const Navbar = () => {
     <React.Fragment>
     <li className='font-bold text-xl hover:text-rose-500'><Link to = '/'>Home</Link></li>
     <li className='font-bold text-xl hover:text-rose-500'><Link to = '/blog'>Blog</Link></li>
-    <li className='font-bold text-xl hover:text-rose-500'><Link to = '/allcatagory'>Category</Link></li>
+    <li className='font-bold text-xl hover:text-rose-500'><Link to = '/allcatagory'>All Categories</Link></li>
    
     {
           user?.uid? 
