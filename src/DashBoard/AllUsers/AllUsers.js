@@ -71,6 +71,7 @@ const AllUsers = () => {
                     <tr>
                         <th></th>
                         <th>Name</th>
+                        <th>Status</th>
                         <th>Email</th>
                         <th>Admin</th>
                         <th>Delete</th>
@@ -81,6 +82,7 @@ const AllUsers = () => {
                             users.map((user, i) => <tr key={user._id}>
                                 <th>{i+1}</th>
                                 <td>{user.name}</td>
+                                <td>{user.user}</td>
                                 <td>{user.email}</td>
                                 <td>{user?.role !== 'admin' && <button onClick={() => handleMakeAdmin(user._id)} className='btn btn-outline btn-sm btn-primary'>Make Admin</button>}</td>
                                 <td><label onClick={() => setDeleteUser(user)} htmlFor="my-modal" className='btn btn-sm btn-outline btn-error'>Delete</label></td>

@@ -7,7 +7,7 @@ const SingleProduct = ({product}) => {
     // console.log(image);
     return (
         <div>
-           <div className="card w-96 bg-base-100 shadow shadow-slate-500">
+           <div className="card w-96 bg-base-100 shadow shadow-slate-500 sm:mt-2">
   <figure className="px-10 pt-10">
     <img src={image} alt="mobile" className="rounded-xl h-[200px]" />
   </figure>
